@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italia 2026 — Livigno · Colle delle Finestre</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f3;
+    --charcoal: #1a1812;
+    --dark-brown: #2d2418;
+    --terracotta: #c4582a;
+    --terra-light: #e07a52;
+    --terra-pale: #f2c4a8;
+    --olive: #5a6e3c;
+    --olive-light: #7d9654;
+    --olive-pale: #b8c99a;
+    --stone: #8a7d6b;
+    --stone-light: #c4b8a4;
+    --stone-pale: #e8e0d4;
+    --gold: #c9a227;
+    --sky: #4a7fa5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--charcoal);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 40px 70px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 80%, rgba(196,88,42,0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(74,127,165,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 60%, rgba(90,110,60,0.10) 0%, transparent 40%);
+  }
+
+  .mountain-silhouette {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    opacity: 0.06;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--stone-light);
+    font-weight: 300;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+
+  .hero-stat {
+    border-left: 2px solid var(--terracotta);
+    padding-left: 16px;
+  }
+
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--stone);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--stone);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,24,18,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,88,42,0.2);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-right: 40px;
+    white-space: nowrap;
+    padding: 16px 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--stone);
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+    white-space: nowrap;
+    border: none;
+    background: none;
+  }
+
+  .nav-link:hover, .nav-link.active { color: var(--cream); }
+  .nav-link.active { color: var(--terracotta); }
+
+  /* SECTIONS */
+  section {
+    padding: 90px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(196,88,42,0.3);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--stone-light);
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 50px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(196,88,42,0.3), rgba(196,88,42,0), rgba(196,88,42,0));
+    margin: 0;
+  }
+
+  /* REGIO BLOCKS */
+  .regio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 700px) {
+    .regio-grid { grid-template-columns: 1fr; }
+  }
+
+  .regio-card {
+    background: var(--dark-brown);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .regio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .regio-card.livigno::before { background: var(--sky); }
+  .regio-card.finestre::before { background: var(--terracotta); }
+
+  .regio-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .regio-card.livigno .regio-badge { background: rgba(74,127,165,0.2); color: var(--sky); }
+  .regio-card.finestre .regio-badge { background: rgba(196,88,42,0.2); color: var(--terracotta); }
+
+  .regio-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .regio-alt {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    margin-bottom: 20px;
+  }
+
+  .regio-desc {
+    font-size: 14px;
+    color: var(--stone-light);
+    line-height: 1.8;
+  }
+
+  /* SCHEMA */
+  .schema-day {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .schema-day:hover { background: rgba(255,255,255,0.02); }
+  .schema-day.active { background: rgba(196,88,42,0.06); }
+  .schema-day.transfer { opacity: 0.55; cursor: default; }
+
+  .schema-day-num {
+    padding: 22px 20px 22px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--stone);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    text-align: right;
+    line-height: 1.3;
+  }
+
+  .schema-day-num .day-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--stone);
+    display: block;
+  }
+
+  .schema-day-content {
+    padding: 22px 0 22px 24px;
+  }
+
+  .schema-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .schema-day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .schema-day-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .meta-km { color: var(--olive-light); }
+  .meta-hm { color: var(--terracotta); }
+  .meta-cols { color: var(--gold); }
+
+  .schema-day-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-epic { background: rgba(196,88,42,0.2); color: var(--terracotta); border: 1px solid rgba(196,88,42,0.3); }
+  .badge-rest { background: rgba(90,110,60,0.15); color: var(--olive-light); border: 1px solid rgba(90,110,60,0.3); }
+  .badge-travel { background: rgba(138,125,107,0.15); color: var(--stone-light); border: 1px solid rgba(138,125,107,0.3); }
+  .badge-bucket { background: rgba(201,162,39,0.2); color: var(--gold); border: 1px solid rgba(201,162,39,0.4); }
+
+  .schema-day-detail {
+    display: none;
+    padding: 16px 0 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 14px;
+  }
+
+  .schema-day.active .schema-day-detail { display: block; }
+
+  .detail-story {
+    font-size: 13.5px;
+    color: var(--stone-light);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .detail-story em {
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  .cols-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .col-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.25);
+    color: var(--gold);
+    border-radius: 2px;
+  }
+
+  .detail-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--sky);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border: 1px solid rgba(74,127,165,0.3);
+    display: inline-block;
+    margin-top: 12px;
+    transition: background 0.2s;
+  }
+
+  .detail-link:hover { background: rgba(74,127,165,0.1); }
+
+  /* COLS TABLE */
+  .cols-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2px;
+  }
+
+  .col-card {
+    background: var(--dark-brown);
+    padding: 24px 22px;
+    border-left: 3px solid;
+    transition: transform 0.2s;
+  }
+
+  .col-card:hover { transform: translateX(3px); }
+  .col-card.legendary { border-color: var(--gold); }
+  .col-card.major { border-color: var(--terracotta); }
+  .col-card.solid { border-color: var(--olive-light); }
+  .col-card.classic { border-color: var(--sky); }
+
+  .col-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .col-region {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .col-stats {
+    display: flex;
+    gap: 16px;
+  }
+
+  .col-stat {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+  }
+
+  .col-stat-val { color: var(--cream); font-size: 14px; font-weight: 500; }
+  .col-stat-lbl { font-size: 9px; color: var(--stone); display: block; }
+
+  /* OVERVIEW TABLE */
+  .overview-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .overview-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--stone);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .overview-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+
+  .overview-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .rit-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+  }
+
+  .rit-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--cream);
+  }
+
+  .rit-km { color: var(--olive-light); font-family: 'DM Mono', monospace; font-size: 12px; }
+  .rit-hm { color: var(--terracotta); font-family: 'DM Mono', monospace; font-size: 12px; }
+  .rit-total { font-weight: 500; color: var(--cream); }
+
+  /* VERBLIJF */
+  .verblijf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 700px) {
+    .verblijf-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 20px; }
+    section { padding: 60px 20px; }
+    .hero { padding: 40px 20px 60px; }
+    .hero-stats { gap: 24px; }
+    .schema-day-title { font-size: 15px; }
+    .schema-day-num { min-width: 60px; padding-right: 12px; font-size: 12px; }
+  }
+
+  .verblijf-card {
+    background: var(--dark-brown);
+    padding: 36px 32px;
+  }
+
+  .verblijf-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .verblijf-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .verblijf-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--terracotta);
+    margin-bottom: 4px;
+  }
+
+  .verblijf-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--olive-light);
+    margin-bottom: 16px;
+  }
+
+  .verblijf-desc {
+    font-size: 13px;
+    color: var(--stone-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .verblijf-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--sky);
+    text-decoration: none;
+    border: 1px solid rgba(74,127,165,0.3);
+    padding: 7px 14px;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .verblijf-link:hover { background: rgba(74,127,165,0.1); }
+
+  /* KOSTEN OVERVIEW */
+  .kosten-box {
+    background: var(--dark-brown);
+    padding: 36px 32px;
+    margin-top: 3px;
+  }
+
+  .kosten-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 14px;
+  }
+
+  .kosten-row:last-child { border-bottom: none; }
+  .kosten-label { color: var(--stone-light); }
+  .kosten-val { font-family: 'DM Mono', monospace; color: var(--cream); }
+  .kosten-total { border-top: 2px solid rgba(196,88,42,0.4) !important; margin-top: 4px; }
+  .kosten-total .kosten-label { color: var(--cream); font-weight: 500; }
+  .kosten-total .kosten-val { color: var(--terracotta); font-size: 20px; font-weight: 700; }
+  .kosten-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--stone); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-brown);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(196,88,42,0.15);
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+
+  footer strong {
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+
+  /* QUOTE */
+  .pull-quote {
+    border-left: 3px solid var(--terracotta);
+    padding: 20px 28px;
+    margin: 40px 0;
+    background: rgba(196,88,42,0.04);
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.7;
+  }
+
+  .pull-quote cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+  }
+
+  /* TOTAAL BAR */
+  .totaal-bar {
+    background: rgba(196,88,42,0.08);
+    border: 1px solid rgba(196,88,42,0.2);
+    padding: 24px 28px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .totaal-stat { }
+  .totaal-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+
+  .totaal-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.05);
+    margin-top: 12px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--terracotta), var(--terra-light));
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--stone);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <svg class="mountain-silhouette" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,300 L0,200 L80,160 L140,180 L200,120 L280,80 L340,130 L380,90 L440,60 L500,100 L540,40 L580,70 L640,30 L700,80 L750,50 L800,90 L860,60 L920,100 L980,70 L1040,110 L1100,80 L1160,130 L1200,110 L1200,300 Z" fill="var(--cream)"/>
+  </svg>
+
+  <div style="position:relative; z-index:2;">
+    <div class="hero-eyebrow">Thomas · 28 Augustus – 6 September 2026</div>
+    <h1 class="hero-title">
+      <em>Italia</em><br>
+      MMXXVI
+    </h1>
+    <p class="hero-sub">
+      Tien dagen wielrennen op het dak van Europa. Van de ijzige hoogvlakte van Livigno 
+      naar de mythische grindpaden van de Colle delle Finestre. 
+      Dit is geen vakantie. Dit is een afrekening met de bergen.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">875 km</div>
+        <div class="hero-stat-label">Totaal afstand</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">22.150 m</div>
+        <div class="hero-stat-label">Totaal hoogtemeters</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">7 ritten</div>
+        <div class="hero-stat-label">In 9 dagen</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2 regio's</div>
+        <div class="hero-stat-label">Livigno · Piëmont</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Italia 2026</div>
+  <div class="nav-links">
+    <button class="nav-link active" data-section="regio">Regio's</button>
+    <button class="nav-link" data-section="schema">Schema</button>
+    <button class="nav-link" data-section="cols">Cols</button>
+    <button class="nav-link" data-section="overzicht">Overzicht</button>
+    <button class="nav-link" data-section="verblijf">Verblijf</button>
+    <button class="nav-link" data-section="kosten">Kosten</button>
+  </div>
+</nav>
+
+<!-- REGIO'S -->
+<div id="regio">
+<section>
+  <div class="section-label">De bestemming</div>
+  <h2 class="section-title">Twee van de<br>mooiste fietsregio's ter wereld</h2>
+  <p class="section-intro">
+    Livigno en het Piëmontese Susa-dal zijn geen fietsgebieden. Het zijn pelgrimsoorden. 
+    Plekken waar elke beklimming een naam heeft, een geschiedenis, en een verhaal dat verder gaat 
+    dan wat meters en percentages kunnen vertellen.
+  </p>
+
+  <div class="regio-grid">
+    <div class="regio-card livigno">
+      <div class="regio-badge">28 aug – 3 sept</div>
+      <h3>Livigno<br>&amp; Bormio</h3>
+      <div class="regio-alt">1.816m – Valtellina, Lombardia</div>
+      <p class="regio-desc">
+        Livigno ligt op bijna 1.900 meter, ingeklemd tussen de Zwitserse grens en de Stelvio. 
+        Hier begint de lucht dunner te worden en de percentages serieuzer. 
+        Het dorp zelf is een belastingparadijs — de echte luxe is echter de toegang tot 
+        een cluster van cols die elders in Europa geen gelijke kennen. 
+        De Stelvio, de Gavia, de Mortirolo, de Bernina: vanuit dit basiskamp zijn ze allemaal binnen bereik. 
+        Marco Pantani trainde hier. Hij wist waarom.
+      </p>
+    </div>
+    <div class="regio-card finestre">
+      <div class="regio-badge">3 – 6 sept</div>
+      <h3>Valle di Susa<br>&amp; Piëmont</h3>
+      <div class="regio-alt">492m – Cesana Torinese, Piemonte</div>
+      <p class="regio-desc">
+        De Susa-vallei is Giro-grond. Elk jaar in mei strijken de ploegen neer in deze vallei, 
+        wetend dat de Colle delle Finestre op hen wacht. In 2018 deed Chris Froome hier het onmogelijke: 
+        hij viel aan op 80 kilometer van de finish, in zijn eentje, en won. 
+        Dat was hier. Op deze wegen. Cesana Torinese is het uitvalsbasiskamp voor de Finestre, 
+        Sestrière en de Montgenevre — klassieke Giro- en Tour-grond op loopafstand.
+      </p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>"There are cols whose reputations precede them. They are iconic, fabled, talked about over coffee stops. And Colle delle Finestre is one of those."</p>
+    <cite>— Rik de Voogd, rikdevoogd.com</cite>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- SCHEMA -->
+<div id="schema">
+<section>
+  <div class="section-label">Het programma</div>
+  <h2 class="section-title">Dag voor dag</h2>
+  <p class="section-intro">
+    Klik op een dag voor de volledige beschrijving, de cols en de routelink.
+  </p>
+
+  <div id="schema-list">
+
+    <!-- DAG 0: Reizen -->
+    <div class="schema-day transfer" onclick="">
+      <div class="schema-day-num">
+        <span class="day-label">Vrij</span>28 aug
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">Vertrek Amsterdam → Livigno</div>
+            <div class="schema-day-meta">
+              <span>~1.400 km rijden · via Zwitserland</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-travel">REIZEN</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 1 -->
+    <div class="schema-day" onclick="toggleDay(this)">
+      <div class="schema-day-num">
+        <span class="day-label">Zat</span>29 aug
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 1 — Bernina Classic</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">128 km</span>
+              <span class="meta-hm">▲ 2.960 m</span>
+              <span class="meta-cols">Bernina · Forcola · Eira · Foscagno</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-epic">EPIC</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            De opener. De eerste dag in de bergen na negen weken training op de polders van Noord-Holland. 
+            Je begint in Bormio, daalt af naar de Valtellina — een vallei zo diep dat de Alpen aan alle kanten 
+            boven je uit torenen — en klimt dan naar Tirano, waar de beroemde rode <em>Bernina Express</em> 
+            op je wacht. Niet de trein, maar de col. 33 kilometer klimmen naar de Zwitserse grens op 2.328 meter. 
+            De spoorlijnen kruisen de weg: hou je ogen open.
+          </p>
+          <p class="detail-story">
+            De terugweg is niet zomaar een afdaling. Je rijdt over drie passes — de Forcola, de Eira en de Foscagno — 
+            terug naar Livigno. Een klassieke lus die laat zien waarom dit gebied anders is dan elk ander fietsgebied 
+            in Europa. Dit is geen opwarmertje. Dit is dag één.
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">Passo Bernina 2328m</span>
+            <span class="col-chip">Forcola di Livigno 2315m</span>
+            <span class="col-chip">Passo d'Eira 2210m</span>
+            <span class="col-chip">Passo del Foscagno 2291m</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.therideatlas.com/route/50000060/bernina-classic" target="_blank">↗ ROUTE OP THE RIDE ATLAS</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 2 -->
+    <div class="schema-day" onclick="toggleDay(this)">
+      <div class="schema-day-num">
+        <span class="day-label">Zon</span>30 aug
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 2 — Livigno Heights</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">169 km</span>
+              <span class="meta-hm">▲ 4.090 m</span>
+              <span class="meta-cols">Passo d'Eira · Foscagno · Agnello · Sestriere · Montgenèvre</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-epic">EPIC</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            All You Can Climb. De naam zegt alles. 169 kilometer, meer dan 4.000 hoogtemeters, 
+            vanuit het hart van Livigno. Dit is de dag waarop de benen écht aan het werk gaan 
+            en de acclimatisatie klaar moet zijn. De route verkent de hogere regionen rondom Livigno 
+            en laat zien hoe dicht het netwerk van klassieke bergpassen hier is — 
+            een van de dichtstbevolkte col-regio's ter wereld.
+          </p>
+          <p class="detail-story">
+            Op dag twee van de trip is dit een verklaring van intentie. <em>We zijn hier niet voor de gezelligheid.</em>
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">Passo d'Eira 2210m</span>
+            <span class="col-chip">Passo del Foscagno 2291m</span>
+            <span class="col-chip">Multiple Alpine passes</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.therideatlas.com/route/50000052/livigno-all-you-can-climb" target="_blank">↗ ROUTE OP THE RIDE ATLAS</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 3 -->
+    <div class="schema-day" onclick="toggleDay(this)">
+      <div class="schema-day-num">
+        <span class="day-label">Ma</span>31 aug
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 3 — Swiss Luxury Ride</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">178 km</span>
+              <span class="meta-hm">▲ 4.000 m</span>
+              <span class="meta-cols">Umbrail · Bernina · Maloja · Julier · Bernina Return</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-epic">EPIC</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            De zwaarste dag qua kilómeters: 178 km over de Zwitserse grens. Zwitserland roept, 
+            en je gaat. De Umbrail Pass verbindt Italië met de Engadin — het mooiste dal van Zwitserland, 
+            beweren de Zwitsers zelf. Bernina opnieuw, maar nu vanuit een andere kant. Maloja. Julier. 
+            Namen die klinken als een encyclopedie van wielrengeschiedenis.
+          </p>
+          <p class="detail-story">
+            Het asfalt in Zwitserland is glad als porselein. De bergkafés serveren Appenzeller. 
+            De vergezichten zijn meedogenloos mooi. Dit is de <em>luxueuze</em> dag in het schema — 
+            relatief, want 4.000 hoogtemeters is voor niemand luxe.
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">Umbrail Pass 2501m</span>
+            <span class="col-chip">Passo Bernina 2328m</span>
+            <span class="col-chip">Passo Maloja 1815m</span>
+            <span class="col-chip">Julier Pass 2284m</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.therideatlas.com/route/50000058/switzerland-calling" target="_blank">↗ ROUTE OP THE RIDE ATLAS</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 4 -->
+    <div class="schema-day" onclick="toggleDay(this)">
+      <div class="schema-day-num">
+        <span class="day-label">Di</span>1 sept
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 4 — Stelvio Day</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">110 km</span>
+              <span class="meta-hm">▲ 3.300 m</span>
+              <span class="meta-cols">Stelvio (Bormio) · Stelvio (Prato)</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-epic">EPIC</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            De Stelvio. 2.758 meter. De hoogste geasfalteerde bergpas van de Alpen. 
+            De Cima Coppi van talloze Giro's. Veertig haarspeldbochten aan de Bormio-kant, 
+            achtenveertig aan de Prato-kant. En jij rijdt hem twee keer.
+          </p>
+          <p class="detail-story">
+            De Double Stelvio is 110 kilometer met 3.300 hoogtemeters — compacter dan de vorige dagen, 
+            maar geen meter wordt verspild. Elke meter is Stelvio. 
+            <em>Fausto Coppi klom hier voor het eerst in 1953. Eddy Merckx in 1972. Andy Hampsten in de sneeuw van 1988. 
+            En nu jij, op een Orbea met 305 watt in de benen.</em>
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">Stelvio (Bormio) 2758m</span>
+            <span class="col-chip">Stelvio (Prato) 2758m</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.therideatlas.com/route/50000057/double-stelvio" target="_blank">↗ ROUTE OP THE RIDE ATLAS</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 5 -->
+    <div class="schema-day" onclick="toggleDay(this)">
+      <div class="schema-day-num">
+        <span class="day-label">Wo</span>2 sept
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 5 — The Witch</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">160 km</span>
+              <span class="meta-hm">▲ 4.800 m</span>
+              <span class="meta-cols">Mortirolo · Gavia · Stelvio</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-epic">EPIC</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            De MoGaSt. <strong>Mo</strong>rtirolo. <strong>Ga</strong>via. <strong>St</strong>elvio. 
+            Drie reuzen in één dag. De hardste dag van de trip. 160 kilometer, 4.800 hoogtemeters, 
+            en een Mortirolo die je al begint te breken nog voor je aan de echte cols begint.
+          </p>
+          <p class="detail-story">
+            De Mortirolo van Mazzo is de moordklim van Italië. Gemiddeld meer dan 10%. 
+            Nooit lager dan 8%. Marco Pantani was de enige die hem echt leek te begrijpen — 
+            hij snelde omhoog terwijl de rest zweette. Halverwege staat zijn gedenkteken. 
+            Je stopt. Je haalt adem. Je kijkt. Dan ga je verder. Want er wacht nog de Gavia. 
+            Dan de Stelvio. <em>Dan de afdaling terug naar Bormio, en een bordje pasta.</em>
+          </p>
+          <p class="detail-story" style="color: var(--terracotta); font-size: 12px;">
+            ⚠ Houd je op de fietspad langs de Oglio-rivier van Monno naar Ponte di Legno — 
+            de hoofdweg is druk en gevaarlijk.
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">Mortirolo (Mazzo) ~1.852m</span>
+            <span class="col-chip">Passo di Gavia 2.621m</span>
+            <span class="col-chip">Stelvio (Bormio) 2.758m</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.therideatlas.com/route/50000055/the-notorious-mogast" target="_blank">↗ ROUTE OP THE RIDE ATLAS</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSFER -->
+    <div class="schema-day transfer">
+      <div class="schema-day-num">
+        <span class="day-label">Do</span>3 sept
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">Transfer + Rustdag — Livigno → Cesana Torinese</div>
+            <div class="schema-day-meta">
+              <span>~2,5 uur rijden · via Turin</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-rest">RUST</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 6 -->
+    <div class="schema-day" onclick="toggleDay(this)">
+      <div class="schema-day-num">
+        <span class="day-label">Vrij</span>4 sept
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 6 — Bardonecchia Loop</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">~120 km</span>
+              <span class="meta-hm">▲ ~3.200 m</span>
+              <span class="meta-cols">Colle della Scala · Col de Montgenèvre · Sestrière</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-epic">EPIC</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            Na de transfer: de verkenning. Vanuit Cesana Torinese maak je kennis met de nieuwe omgeving. 
+            De Bardonecchia-lus voert door het hart van het Piëmontese berglandschap — 
+            over de Colle della Scala de grens naar Frankrijk over, langs de Col de Montgenèvre 
+            (een vaste klimmer in de Tour de France) en terug via Sestrière.
+          </p>
+          <p class="detail-story">
+            Dit is de kennismakingsdag met een nieuwe wereld. Minder verkeersintensief dan de Stelvio-regio, 
+            smaller, wilder. En morgen wacht de Finestre.
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">Colle della Scala 1762m</span>
+            <span class="col-chip">Col de Montgenèvre 1854m</span>
+            <span class="col-chip">Sestrière 2035m</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.outdooractive.com/en/route/road-cycling/bardonecchia/bardonecchia-loop-colle-della-scala-col-de-montgenevre-colle-del/804316026/" target="_blank">↗ ROUTE OP OUTDOORACTIVE</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIT 7 — FINESTRE -->
+    <div class="schema-day" onclick="toggleDay(this)" style="background: rgba(201,162,39,0.03); border-left: 2px solid rgba(201,162,39,0.3);">
+      <div class="schema-day-num">
+        <span class="day-label">Zat</span>5 sept
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">RIT 7 — Finestre Day ★</div>
+            <div class="schema-day-meta">
+              <span class="meta-km">~100 km</span>
+              <span class="meta-hm">▲ ~3.100 m</span>
+              <span class="meta-cols">Colle delle Finestre · Sestrière</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-bucket">BUCKETLIST</span>
+        </div>
+        <div class="schema-day-detail">
+          <p class="detail-story">
+            Dit is de reden. Dit is waarom je 10 weken getraind hebt. Waarom je de MoGaSt hebt overleefd. 
+            Waarom je hier bent.
+          </p>
+          <p class="detail-story">
+            De Colle delle Finestre. 18,6 kilometer vanuit Susa. Gemiddeld 9,1%. 
+            Pieken van 14%. En dan, met 8 kilometer te gaan, houdt het asfalt op. 
+            Gravel. Grind. Stof. De weg wordt smaller, ruwer, strenger. 
+            Je klom tot hier op vermogen — hier klim je op karakter.
+          </p>
+          <p class="detail-story">
+            <em>In 2018 viel Chris Froome hier aan met 80 kilometer te rijden. 
+            Niemand geloofde hem — tot hij drie minuten had op de rest en 
+            de Giro d'Italia al in zijn zak leek te hebben. 
+            In 2025 schreef Simon Yates hier zijn eigen versie van hetzelfde verhaal.</em>
+          </p>
+          <p class="detail-story">
+            Op 2.175 meter stop je. Je kijkt achterom. De switchbacks tekenen zich af in de vallei. 
+            Het grind ligt nog op je banden. Hier was het. Hier is het.
+          </p>
+          <div class="cols-chips">
+            <span class="col-chip">★ Colle delle Finestre 2175m</span>
+            <span class="col-chip">18,6 km · 9,1% gem.</span>
+            <span class="col-chip">8 km gravel boven</span>
+            <span class="col-chip">Sestrière 2035m</span>
+          </div>
+          <br>
+          <a class="detail-link" href="https://www.komoot.com/nl-nl/tour/2462297435" target="_blank" style="margin-right: 8px;">↗ ROUTE OP KOMOOT</a>
+          <a class="detail-link" href="https://www.rikdevoogd.com/blog/colle-delle-finestre-that-epic-bucket-list-climb-and-why-you-should-do-it-on-your-road-bike" target="_blank">↗ RIK DE VOOGD BLOG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THUISREIS -->
+    <div class="schema-day transfer">
+      <div class="schema-day-num">
+        <span class="day-label">Zon</span>6 sept
+      </div>
+      <div class="schema-day-content">
+        <div class="schema-day-header">
+          <div>
+            <div class="schema-day-title">Thuisreis Cesana → Amsterdam</div>
+            <div class="schema-day-meta">
+              <span>~1.200 km · aankomst avond</span>
+            </div>
+          </div>
+          <span class="schema-day-badge badge-travel">REIZEN</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end schema-list -->
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- COLS -->
+<div id="cols">
+<section>
+  <div class="section-label">De cols</div>
+  <h2 class="section-title">Cols die in de<br>geschiedenisboeken staan</h2>
+  <p class="section-intro">
+    De tien dagen omvatten een selectie van de beroemdste klimmen van Europa. 
+    Dit is geen toevallige samenkomst — elk van deze cols heeft namen, jaren en verhalen 
+    die ver voorbij de sport reiken.
+  </p>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Legendarisch — Giro-icoon</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--terracotta)"></div> Groot — Giro/Tour</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--olive-light)"></div> Klassiek — vaste col</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--sky)"></div> Klassiek — grensoverschrijdend</div>
+  </div>
+
+  <div class="cols-grid">
+    <div class="col-card legendary">
+      <div class="col-name">Colle delle Finestre</div>
+      <div class="col-region">Piëmont · Giro d'Italia bucketlist</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.175m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">18,6 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">9,1%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-top:10px;">★ 8 km gravel · Froome 2018 · Yates 2025</div>
+    </div>
+
+    <div class="col-card legendary">
+      <div class="col-name">Passo dello Stelvio</div>
+      <div class="col-region">Lombardia · Cima Coppi per excellence</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.758m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">21 km</div><div class="col-stat-lbl">lengte (Bormio)</div></div>
+        <div class="col-stat"><div class="col-stat-val">7,4%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-top:10px;">★ Hoogste geasfalteerde Alpenpass · 40 bochten</div>
+    </div>
+
+    <div class="col-card major">
+      <div class="col-name">Passo Mortirolo (Mazzo)</div>
+      <div class="col-region">Valtellina · Hardste klim van Italië</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">1.852m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">12,4 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">10,5%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--terracotta);margin-top:10px;">Marco Pantani memorial halverwege</div>
+    </div>
+
+    <div class="col-card major">
+      <div class="col-name">Passo di Gavia</div>
+      <div class="col-region">Lombardia · Van der Velde 1988 sneeuwstorm</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.621m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">18 km</div><div class="col-stat-lbl">lengte (P. di Legno)</div></div>
+        <div class="col-stat"><div class="col-stat-val">7,5%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--terracotta);margin-top:10px;">Rifugio Bonetta halverwege · Wild en smal</div>
+    </div>
+
+    <div class="col-card classic">
+      <div class="col-name">Passo del Bernina</div>
+      <div class="col-region">Grens Italië/Zwitserland</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.328m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">33 km</div><div class="col-stat-lbl">lengte (Tirano)</div></div>
+        <div class="col-stat"><div class="col-stat-val">~6%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+    </div>
+
+    <div class="col-card classic">
+      <div class="col-name">Umbrail Pass</div>
+      <div class="col-region">Grens Italië/Zwitserland</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.501m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">12 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">8,3%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+    </div>
+
+    <div class="col-card solid">
+      <div class="col-name">Sestrière</div>
+      <div class="col-region">Piëmont · Giro & Tour classic</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.035m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~9 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">5,4%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+    </div>
+
+    <div class="col-card solid">
+      <div class="col-name">Col de Montgenèvre</div>
+      <div class="col-region">Grens Italië/Frankrijk · Tour de France</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">1.854m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~8 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~6%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+    </div>
+
+    <div class="col-card solid">
+      <div class="col-name">Passo del Foscagno</div>
+      <div class="col-region">Livigno-vallei</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.291m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~18 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~5%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+    </div>
+
+    <div class="col-card classic">
+      <div class="col-name">Forcola di Livigno</div>
+      <div class="col-region">Grens Italië/Zwitserland</div>
+      <div class="col-stats">
+        <div class="col-stat"><div class="col-stat-val">2.315m</div><div class="col-stat-lbl">hoogte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~10 km</div><div class="col-stat-lbl">lengte</div></div>
+        <div class="col-stat"><div class="col-stat-val">~6%</div><div class="col-stat-lbl">gem. stijging</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- OVERZICHT -->
+<div id="overzicht">
+<section>
+  <div class="section-label">Totaaloverzicht</div>
+  <h2 class="section-title">Alle ritten in cijfers</h2>
+
+  <table class="overview-table">
+    <thead>
+      <tr>
+        <th>Rit</th>
+        <th>Naam</th>
+        <th>Datum</th>
+        <th>Km</th>
+        <th>Hm ▲</th>
+        <th>Zwaarte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="rit-num">01</td>
+        <td><div class="rit-title">Bernina Classic</div></td>
+        <td style="color:var(--stone);font-size:12px;">Za 29 aug</td>
+        <td class="rit-km">128</td>
+        <td class="rit-hm">2.960</td>
+        <td><span class="schema-day-badge badge-epic">EPIC</span></td>
+      </tr>
+      <tr>
+        <td class="rit-num">02</td>
+        <td><div class="rit-title">Livigno Heights</div></td>
+        <td style="color:var(--stone);font-size:12px;">Zo 30 aug</td>
+        <td class="rit-km">169</td>
+        <td class="rit-hm">4.090</td>
+        <td><span class="schema-day-badge badge-epic">EPIC</span></td>
+      </tr>
+      <tr>
+        <td class="rit-num">03</td>
+        <td><div class="rit-title">Swiss Luxury Ride</div></td>
+        <td style="color:var(--stone);font-size:12px;">Ma 31 aug</td>
+        <td class="rit-km">178</td>
+        <td class="rit-hm">4.000</td>
+        <td><span class="schema-day-badge badge-epic">EPIC</span></td>
+      </tr>
+      <tr>
+        <td class="rit-num">04</td>
+        <td><div class="rit-title">Stelvio Day (Double)</div></td>
+        <td style="color:var(--stone);font-size:12px;">Di 1 sept</td>
+        <td class="rit-km">110</td>
+        <td class="rit-hm">3.300</td>
+        <td><span class="schema-day-badge badge-epic">EPIC</span></td>
+      </tr>
+      <tr>
+        <td class="rit-num">05</td>
+        <td><div class="rit-title">The Witch — MoGaSt</div></td>
+        <td style="color:var(--stone);font-size:12px;">Wo 2 sept</td>
+        <td class="rit-km">160</td>
+        <td class="rit-hm">4.800</td>
+        <td><span class="schema-day-badge badge-epic">EPIC</span></td>
+      </tr>
+      <tr>
+        <td class="rit-num">06</td>
+        <td><div class="rit-title">Bardonecchia Loop</div></td>
+        <td style="color:var(--stone);font-size:12px;">Vr 4 sept</td>
+        <td class="rit-km">~120</td>
+        <td class="rit-hm">~3.200</td>
+        <td><span class="schema-day-badge badge-epic">EPIC</span></td>
+      </tr>
+      <tr>
+        <td class="rit-num">07</td>
+        <td>
+          <div class="rit-title">Finestre Day ★</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);">BUCKETLIST KLIM</div>
+        </td>
+        <td style="color:var(--stone);font-size:12px;">Za 5 sept</td>
+        <td class="rit-km">~100</td>
+        <td class="rit-hm">~3.100</td>
+        <td><span class="schema-day-badge badge-bucket">BUCKETLIST</span></td>
+      </tr>
+      <tr style="background:rgba(196,88,42,0.06);">
+        <td colspan="2" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--stone);padding:16px;">TOTAAL (7 ritten)</td>
+        <td></td>
+        <td class="rit-km rit-total">~965 km</td>
+        <td class="rit-hm rit-total">~25.450 m</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totaal-bar">
+    <div class="totaal-stat">
+      <div class="totaal-num">~965 km</div>
+      <div class="totaal-lbl">Totale afstand</div>
+    </div>
+    <div class="totaal-stat">
+      <div class="totaal-num">~25.450 m</div>
+      <div class="totaal-lbl">Totale hoogtemeters</div>
+    </div>
+    <div class="totaal-stat">
+      <div class="totaal-num">7</div>
+      <div class="totaal-lbl">Ritten</div>
+    </div>
+    <div class="totaal-stat">
+      <div class="totaal-num">10+</div>
+      <div class="totaal-lbl">Iconische cols</div>
+    </div>
+    <div class="totaal-stat">
+      <div class="totaal-num">2</div>
+      <div class="totaal-lbl">Grenzen (CH, FR)</div>
+    </div>
+  </div>
+
+  <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--stone);margin-top:12px;">
+    * Rit 6 en 7 zijn schattingen op basis van de routeprofielen. Exacte getallen volgen bij definitieve GPX-bestanden.
+  </p>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- VERBLIJF -->
+<div id="verblijf">
+<section>
+  <div class="section-label">Logistiek</div>
+  <h2 class="section-title">Twee bases,<br>twee werelden</h2>
+  <p class="section-intro">
+    Beide accommodaties zijn geboekt via Airbnb en bieden de ruimte en faciliteiten 
+    die je na een dag van 4.000+ hoogtemeters nodig hebt.
+  </p>
+
+  <div class="verblijf-grid">
+    <div class="verblijf-card">
+      <div class="regio-badge" style="background:rgba(74,127,165,0.2);color:var(--sky);margin-bottom:16px;">Basis 1 · 6 nachten</div>
+      <h3>Livigno</h3>
+      <div class="verblijf-period">Za 28 aug – Do 3 sept · 6 nachten · 2 personen</div>
+      <div class="verblijf-price">€ 1.099</div>
+      <div class="verblijf-note">✓ Gratis annuleren voor 29 juli</div>
+      <p class="verblijf-desc">
+        Uitvalsbasiskamp voor vijf epische ritten in de Stelvio-regio. 
+        Livigno ligt op 1.816m — ideaal voor acclimatisatie en dagelijks uitvaren 
+        richting Stelvio, Gavia, Mortirolo en de Bernina.
+      </p>
+      <a class="verblijf-link" href="https://www.airbnb.nl/rooms/1456385708888498621" target="_blank">↗ BEKIJK OP AIRBNB</a>
+    </div>
+
+    <div class="verblijf-card">
+      <div class="regio-badge" style="background:rgba(196,88,42,0.2);color:var(--terracotta);margin-bottom:16px;">Basis 2 · 3 nachten</div>
+      <h3>Cesana Torinese</h3>
+      <div class="verblijf-period">Do 3 sept – Zo 6 sept · 3 nachten · 2 personen</div>
+      <div class="verblijf-price">€ 639</div>
+      <div class="verblijf-note">✓ Gratis annuleren voor 2 september</div>
+      <p class="verblijf-desc">
+        Het basiskamp voor de Finestre. Cesana Torinese ligt aan de voet van 
+        Sestrière en op korte afstand van Susa — het startpunt van de Colle delle Finestre. 
+        Giro-grond, letterlijk.
+      </p>
+      <a class="verblijf-link" href="https://www.airbnb.nl/rooms/1198425443480342769" target="_blank">↗ BEKIJK OP AIRBNB</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- KOSTEN -->
+<div id="kosten">
+<section>
+  <div class="section-label">Budget</div>
+  <h2 class="section-title">Kostenraming</h2>
+  <p class="section-intro">
+    Een eerlijke raming voor de totale kosten van de trip, op basis van de bekende getallen 
+    en realistische schattingen voor de overige posten.
+  </p>
+
+  <div class="kosten-box">
+    <div class="kosten-row">
+      <span class="kosten-label">Verblijf Livigno (6 nachten, Airbnb)</span>
+      <span class="kosten-val">€ 1.099</span>
+    </div>
+    <div class="kosten-row">
+      <span class="kosten-label">Verblijf Cesana Torinese (3 nachten, Airbnb)</span>
+      <span class="kosten-val">€ 639</span>
+    </div>
+    <div class="kosten-row">
+      <span class="kosten-label">
+        Brandstof (auto heen + terug + transfer)<br>
+        <span class="kosten-sub">~5.500 km · diesel · €1,70/L gem. · 6,5L/100km</span>
+      </span>
+      <span class="kosten-val">€ 610</span>
+    </div>
+    <div class="kosten-row">
+      <span class="kosten-label">
+        Tol (Zwitserland vignette + Italiaanse snelwegen)<br>
+        <span class="kosten-sub">CH vignette €40 + A22/A4 tol ~€60</span>
+      </span>
+      <span class="kosten-val">€ 100</span>
+    </div>
+    <div class="kosten-row">
+      <span class="kosten-label">
+        Eten & drinken (10 dagen, 2 personen)<br>
+        <span class="kosten-sub">Supermarkt + rifugio + pasta dinner: ~€65/dag voor 2</span>
+      </span>
+      <span class="kosten-val">€ 650</span>
+    </div>
+    <div class="kosten-row">
+      <span class="kosten-label">
+        Sportvoeding & bidon-vulling onderweg<br>
+        <span class="kosten-sub">Gels, bars, café-stops, rifugio-koffie: ~€25/rij-dag</span>
+      </span>
+      <span class="kosten-val">€ 175</span>
+    </div>
+    <div class="kosten-row">
+      <span class="kosten-label">
+        Onvoorzien (mechanisch, apotheek, parkeren)<br>
+        <span class="kosten-sub">Buffer ~10%</span>
+      </span>
+      <span class="kosten-val">€ 250</span>
+    </div>
+    <div class="kosten-row kosten-total">
+      <span class="kosten-label">Totaal (2 personen)</span>
+      <span class="kosten-val">≈ € 3.523</span>
+    </div>
+    <div class="kosten-row" style="border:none;padding-top:6px;">
+      <span class="kosten-label" style="color:var(--stone);font-size:13px;">Per persoon</span>
+      <span class="kosten-val" style="color:var(--stone-light);font-size:15px;">≈ € 1.760</span>
+    </div>
+  </div>
+
+  <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--stone);margin-top:16px;line-height:1.7;">
+    * Niet inbegrepen: verzekering, eventuele berghutten/rifugio-overnachtingen, 
+    persoonlijke aankopen, souvenirs, Livigno tax-free shopping (bonus!). 
+    Brandstofschatting op basis van diesel; aanpassen voor benzine of hybride.
+  </p>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>Italia 2026 — Thomas</strong><br>
+    28 augustus – 6 september · Amsterdam → Livigno → Cesana Torinese → Amsterdam<br>
+    FTP 305W · 4,2 W/kg · Training: 10 weken Alpine prep voltooid op 11 juli<br><br>
+    Gegenereerd als reisbrochure · Alle routes via externe links
+  </p>
+</footer>
+
+<script>
+  function toggleDay(el) {
+    const wasActive = el.classList.contains('active');
+    document.querySelectorAll('.schema-day.active').forEach(d => d.classList.remove('active'));
+    if (!wasActive) el.classList.add('active');
+  }
+
+  const sections = ['regio','schema','cols','overzicht','verblijf','kosten'];
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navHeight = document.querySelector('nav').offsetHeight;
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+    setActive(id);
+  }
+
+  function setActive(id) {
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.dataset.section === id);
+    });
+  }
+
+  // Wire up nav buttons via data-section
+  navLinks.forEach(l => {
+    const sec = l.dataset.section;
+    if (sec) l.addEventListener('click', () => scrollTo(sec));
+  });
+
+  // Highlight active nav on scroll
+  window.addEventListener('scroll', () => {
+    let current = sections[0];
+    const navHeight = document.querySelector('nav').offsetHeight + 16;
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.getBoundingClientRect().top + window.scrollY - navHeight) {
+        current = id;
+      }
+    });
+    setActive(current);
+  }, { passive: true });
+</script>
+</body>
+</html>
